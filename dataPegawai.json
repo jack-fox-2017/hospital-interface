@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nama": "angie",
+    "position": "Admin",
+    "user": "angie",
+    "password": "angie12"
+  },
+  {
+    "id": 2,
+    "nama": "laras",
+    "position": "Dokter",
+    "user": "laras",
+    "password": "laras12"
+  },
+  {
+    "id": 3,
+    "nama": "obian",
+    "position": "OB",
+    "user": "obi",
+    "password": "obi12"
+  },
+  {
+    "id": 4,
+    "nama": "tara",
+    "position": "Administrasi",
+    "user": "tara",
+    "password": "tara12"
+  },
+  {
+    "id": 5,
+    "nama": "Mirza",
+    "position": "Dokter",
+    "user": "mirza",
+    "password": "mirza12"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "nama": "Ozy",
+    "position": "Pasien",
+    "diagnosa": "Panas Luar",
+    "user": "ozi",
+    "password": "ozi12"
+  },
+  {
+    "id": 2,
+    "nama": "Jihan",
+    "position": "Pasien",
+    "diagnosa": "Pegalinu",
+    "user": "jihan",
+    "password": "jihan12"
+  },
+  {
+    "id": 3,
+    "nama": "sinta",
+    "position": "Pasien",
+    "diagnosa": "mual",
+    "user": "sinta",
+    "password": "sinta12"
+  },
+  {
+    "id": 4,
+    "nama": "boy",
+    "position": "Pasien",
+    "diagnosa": "jatoh",
+    "user": "boy",
+    "password": "boy12"
+  },
+  {
+    "id": 5,
+    "nama": "boy",
+    "position": "Pasien",
+    "diagnosa": "melilit",
+    "user": "boy",
+    "password": "boy22"
+  },
+  {
+    "id": 7,
+    "nama": "anisah",
+    "position": "Pasien",
+    "diagnosa": "kutuair",
+    "user": "anisah",
+    "password": "anisah12"
+  },
+  {
+    "id": 8,
+    "nama": "dewi",
+    "position": "Pasien",
+    "diagnosa": "bisul",
+    "user": "dewi",
+    "password": "dewi12"
+  },
+  {
+    "id": 8,
+    "nama": "rey",
+    "position": "Pasien",
+    "diagnosa": "Dokter",
+    "user": "rey",
+    "password": "rey12"
+  }
+]
