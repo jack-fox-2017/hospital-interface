@@ -1,0 +1,30 @@
+[
+  {
+    "id":1,
+    "name":"Pasien 1",
+    "diagnosa":"Pilek"},
+  {
+    "id":2,
+    "name":"Pasien 2",
+    "diagnosa":"Pilek"},
+  {
+    "id":3,
+    "name":"Pasien 2",
+    "diagnosa":"Batuk"
+  },
+  {
+    "id":4,
+    "name":"Pasien 3",
+    "diagnosa":"Demam"
+  },
+  {
+    "id":5,
+    "name":"Pasien 4",
+    "diagnosa":"Batuk"
+  },
+  {
+    "id":6,
+    "name":"Pasien 5",
+    "diagnosa":"Demam"
+  }
+]
