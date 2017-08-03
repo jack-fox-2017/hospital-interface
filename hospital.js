@@ -157,29 +157,37 @@ class Hospital {
 
     rl.question('', input => {
       input = input.split(' ').map(item => {return item.trim()})
-      let menuId = menuList[input[0] - 1].id
-      switch (menuId) {
-        case 1: this.listEmployees(); break;
-        case 2: this.addEmployee(); break;
-        case 3: this.removeEmployee(input[1]); break;
 
-        case 4: this.listPatients(); break;
-        case 5: this.addPatient(); break;
-        case 6: this.removePatient(input[1]); break;
+      if (input == '' || input.length <= 0)
+        return this.menu()
+      else {
+        let menuId = menuList[input[0] - 1].id
+        switch (menuId) {
+          case 1: this.listEmployees(); break;
+          case 2: this.addEmployee(); break;
+          case 3: this.removeEmployee(input[1]); break;
 
-        case 7: this.viewRecords(input[1]); break;
-        case 8: this.addRecord(input[1]); break;
-        case 9: this.removeRecord(input[1], input[2]); break;
+          case 4: this.listPatients(); break;
+          case 5: this.addPatient(); break;
+          case 6: this.removePatient(input[1]); break;
 
-        case 10: this.nyapu(); break;
+          case 7: this.viewRecords(input[1]); break;
+          case 8: this.addRecord(input[1]); break;
+          case 9: this.removeRecord(input[1], input[2]); break;
 
-        case 11: this.logout(); break;
-        case 12: this.exit(); break;
+          case 10: this.nyapu(); break;
+
+          case 11: this.logout(); break;
+          case 12: this.exit(); break;
+        }
       }
     })
   }
   clear() {
-    console.log('\u001B[2J\u001B[0;0f')
+    if (!this.unclearBool) {
+      this.unclearBool = false
+      console.log('\u001B[2J\u001B[0;0f')
+    }
   }
   back() {
     rl.question(chalk.green('Press enter to go back to menu\n'), input => {
@@ -206,6 +214,10 @@ class Hospital {
     console.log(`${br}Add Employee\n${br}`);
     rl.question('Input: <name>, <position>, <username>, <password>\n', input => {
       let data = input.split(',')
+      if (data.length < 2) {
+        console.log(chalk.red('Your inputs are invalid, input need 4 parameters'));
+        return this.back()
+      }
       let employee = new Employee(Model.getData(employeesData, true), data[0].trim(), data[1].trim(), data[2].trim(), data[3].trim())
       this.employees.push(employee)
 
@@ -239,7 +251,6 @@ class Hospital {
       head: ['NO', 'ID', 'NAME', 'RECORD'],
       colWidth: [100, 100, 200, 200]
     })
-
     this.patients.forEach((item, index) => {
       let records = item.records.map(item => {return item.name}).join(', ')
       table.push([index + 1, item.id, item.name, records])
@@ -253,6 +264,11 @@ class Hospital {
     console.log(`${br}Add Pasien\n${br}`);
     rl.question(`Input: <name>, <record>\n`, input => {
       let data = input.split(',')
+      if (data.length < 2) {
+        console.log(chalk.red('Your inputs are invalid, input need 2 parameters'));
+        return this.back()
+      }
+
       let record = {
         id: 1,
         name: data[1].trim()
@@ -405,5 +421,5 @@ let employees = Model.getData(employeesData).map(item => {return new Employee(it
 let patients = Model.getData(patientsData).map(item => {return new Patient(item.id, item.name, item.records)})
 let session = Model.getSession(sessionData)
 let hospital = new Hospital('Sakitpedia', 'Jl. Jalan', employees, patients, session[0])
-
+// console.log(patients);
 hospital.start()

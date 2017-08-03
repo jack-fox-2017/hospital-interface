@@ -1,5 +1,4 @@
 [
-  8,
   {
     "id": 2,
     "name": "Zaenal Arifin",
@@ -17,16 +16,6 @@
       {
         "id": 1,
         "name": "Flu burung"
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "name": "Teja",
-    "records": [
-      {
-        "id": 1,
-        "name": "Kurap"
       }
     ]
   },
@@ -55,6 +44,26 @@
       {
         "id": 2,
         "name": "Garrix"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "asd",
+    "records": [
+      {
+        "id": 1,
+        "name": "asd"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "qwe",
+    "records": [
+      {
+        "id": 1,
+        "name": "qwe"
       }
     ]
   }

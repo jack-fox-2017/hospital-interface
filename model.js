@@ -13,7 +13,8 @@ class Model {
 
   static saveData(file, data) {
     let updateId = this.getData(file, true) + 1
-    data.unshift(updateId)
+    let newData = data.slice(0)
+    newData.unshift(updateId)
     fs.writeFileSync(file, JSON.stringify(data, null, 2))
   }
 
