@@ -1,0 +1,61 @@
+[
+  8,
+  {
+    "id": 2,
+    "name": "Zaenal Arifin",
+    "records": [
+      {
+        "id": 1,
+        "name": "Rahang oleng"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Jaenal",
+    "records": [
+      {
+        "id": 1,
+        "name": "Flu burung"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Teja",
+    "records": [
+      {
+        "id": 1,
+        "name": "Kurap"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Dimas",
+    "records": [
+      {
+        "id": 1,
+        "name": "Gusi encok"
+      },
+      {
+        "id": 2,
+        "name": "Sakit"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Alfan",
+    "records": [
+      {
+        "id": 1,
+        "name": "Martin"
+      },
+      {
+        "id": 2,
+        "name": "Garrix"
+      }
+    ]
+  }
+]

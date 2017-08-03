@@ -1,0 +1,17 @@
+[
+  7,
+  {
+    "id": 1,
+    "name": "Rahmat",
+    "position": "Dokter",
+    "username": "dokter",
+    "password": "dokter"
+  },
+  {
+    "id": 2,
+    "name": "Hidayat",
+    "position": "Admin",
+    "username": "admin",
+    "password": "admin"
+  }
+]
