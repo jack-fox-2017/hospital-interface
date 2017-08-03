@@ -1,0 +1,35 @@
+[
+  {
+    "id": 2,
+    "name": "Pasien 2",
+    "diagnosis": [
+      "Flu Ajah",
+      "Gejala Kurang Tidur"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Pasien 3",
+    "diagnosis": [
+      "Gagal Move on"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Johan",
+    "diagnosis": []
+  },
+  {
+    "id": 5,
+    "name": "Nasikin",
+    "diagnosis": []
+  },
+  {
+    "id": 6,
+    "name": "Rahmat Hidayat bin Moch Hidayat",
+    "diagnosis": [
+      "Gejala Kurang Tidur",
+      "Biasa Telat Tidur"
+    ]
+  }
+]

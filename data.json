@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Achim",
+    "position": "admin",
+    "username": "achim",
+    "password": "achim"
+  },
+  {
+    "name": "dr. Sayyaf R SPOG",
+    "position": "dokter",
+    "username": "dokter",
+    "password": "dokter"
+  },
+  {
+    "name": "Si Nona Cantik",
+    "position": "receptionist",
+    "username": "cantik",
+    "password": "cantik"
+  },
+  {
+    "name": "Si OB Bersahaja",
+    "position": "office boy",
+    "username": "ob",
+    "password": "ob"
+  },
+  {
+    "name": "Kartolo Keren",
+    "position": "ob",
+    "username": "kartolo",
+    "password": "keren"
+  }
+]
