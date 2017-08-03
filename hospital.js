@@ -1,7 +1,7 @@
 const readline = require('readline');
 const fs = require('fs');
-const Dokter = require('./dokter');
-const Reception = require('./reception');
+// const Dokter = require('./dokter');
+// const Reception = require('./reception');
 
 
 const rl = readline.createInterface({
@@ -18,6 +18,7 @@ class Hospital {
     this.location = 'Jl. Raya Pondok Indah Jakarta Selatan'//location
     this.dataEmployee = './employee.json'
     this.dataPatient = './patient.json'
+    this.whoami = ''
   }
 
   runApp(){
@@ -39,11 +40,16 @@ class Hospital {
       let getData = this.readEmployee()
         if(input == getData[id].password){
           if(getData[id].position === 'admin'){
-            this.menuAdmin(getData[id].name)
+            this.whoami = 'admin'
+            this.menuAdmin()
           } else if(getData[id].position === 'dokter'){
-            this.menuDokter(getData[id].name)
+            this.whoami = 'dokter'
+            this.menuAdmin()
+            // this.menuDokter()
           } else if(getData[id].position === 'receptionist'){
-            this.menuReceptionist(getData[id].name)
+            this.whoami = 'receptionist'
+            this.menuAdmin()
+            // this.menuReceptionist()
           } else if(getData[id].position === 'office boy'){
             this.menuOB(getData[id].name)
           } else {
@@ -56,49 +62,103 @@ class Hospital {
   }
 
   menuAdmin(){
-    this.clear()
-    console.log(`
-      --- Menu Sistem Admin ---
-      [1] Tambah Pegawai
-      [2] Daftar Pegawai
-      [3] Hapus Pegawai
-      [4] Tambah Pasien
-      [5] Daftar Pasien
-      [6] Hapus Pasien
-      [7] Tambah Rekam Medis
-      [8] Hapus Rekam Medis
-      [9] Logout`);
-    rl.question('\nPilih Menu dengan mengetik angka: ', (input)=>{
-      if(input == 1){
-        this.tambahEmployee()
-      } else if(input == 2){
-        this.showEmployee()
-      } else if(input == 3){
-        this.delEmployee()
-      } else if(input == 4){
-        this.tambahPatient()
-      } else if(input == 5){
-        this.showPatient()
-      } else if(input == 6){
-        this.delPatient()
-      } else if(input == 7){
-        this.addRekam()
-      } else if(input == 8){
-        this.delRekam()
-      } else if(input == 9){
-        this.logout()
-      } else {
-        this.logout()
-      }
-    })
+    if(this.whoami == 'admin'){
+      this.clear()
+      // console.log(this.whoami + '********************');
+      console.log(`
+        --- Menu Sistem Admin ---
+        [1] Tambah Pegawai
+        [2] Daftar Pegawai
+        [3] Hapus Pegawai
+        [4] Tambah Pasien
+        [5] Daftar Pasien
+        [6] Hapus Pasien
+        [7] Tambah Rekam Medis
+        [8] Hapus Rekam Medis
+        [9] Logout`);
+      rl.question('\nPilih Menu dengan mengetik angka: ', (input)=>{
+        if(input == 1){
+          this.tambahEmployee()
+        } else if(input == 2){
+          this.showEmployee()
+        } else if(input == 3){
+          this.delEmployee()
+        } else if(input == 4){
+          this.tambahPatient()
+        } else if(input == 5){
+          this.showPatient()
+        } else if(input == 6){
+          this.delPatient()
+        } else if(input == 7){
+          this.addRekam()
+        } else if(input == 8){
+          this.delRekam()
+        } else if(input == 9){
+          this.logout()
+        } else {
+          this.logout()
+        }
+      })
+    } else if (this.whoami == 'dokter') {
+      this.clear()
+      // console.log(this.whoami + '********************');
+
+      console.log(`
+        --- Menu Sistem Dokter ---
+        [1] Daftar Pasien
+        [2] Tambah Rekam Medis
+        [3] Hapus Rekam Medis
+        [4] Logout`);
+      rl.question('\nPilih Menu dengan mengetik angka: ', (input)=>{
+        if(input == 1){
+          this.showPatient()
+        } else if (input == 2) {
+          this.addRekam()
+        } else if (input == 3) {
+          this.delRekam()
+        } else if (input == 4) {
+          this.logout()
+        } else {
+          this.logout()
+        }
+      })
+    } else if (this.whoami == 'receptionist') {
+      this.clear()
+      // console.log(this.whoami + '********************');
+
+      console.log(`
+        --- Menu Sistem Receptionist ---
+        [1] Tambah Pasien
+        [2] Daftar Pasien
+        [3] Hapus Pasien
+        [4] Tambah Rekam Medis
+        [5] Hapus Rekam Medis
+        [6] Logout`);
+
+      rl.question('\nPilih Menu dengan mengetik angka: ', (input)=>{
+        if (input == 1) {
+          this.tambahPatient()
+        } else if (input == 2) {
+          this.showPatient()
+        } else if (input == 3) {
+          this.delPatient()
+        } else if (input == 4) {
+          this.addRekam()
+        } else if (input == 5) {
+          this.delRekam()
+        } else {
+          this.logout()
+        }
+      })
+    }
   }
   menuDokter(){
-    let getMenu = new Dokter()
-    getMenu.menuAdmin()
+    // let getMenu = new Dokter()
+    // getMenu.menuAdmin()
   }
   menuReceptionist(){
-    let getMenu = new Reception()
-    getMenu.menuAdmin()
+    // let getMenu = new Reception()
+    // getMenu.menuAdmin()
   }
   menuOB(user){
     console.log(`Halo ${user}`);

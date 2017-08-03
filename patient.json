@@ -22,14 +22,19 @@
   {
     "id": 5,
     "name": "Nasikin",
-    "diagnosis": []
+    "diagnosis": [
+      "headache without coffee",
+      "arepe ngutak atik"
+    ]
   },
   {
     "id": 6,
     "name": "Rahmat Hidayat bin Moch Hidayat",
-    "diagnosis": [
-      "Gejala Kurang Tidur",
-      "Biasa Telat Tidur"
-    ]
+    "diagnosis": []
+  },
+  {
+    "id": 7,
+    "name": "Yatna Asintyo",
+    "diagnosis": []
   }
 ]
