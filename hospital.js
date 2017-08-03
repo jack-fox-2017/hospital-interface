@@ -51,17 +51,17 @@ class Hospital {
 
   menu(user) {
     console.log('--------------- Menu ---------------')
-    switch (user) {
-      case 'Admin':
+    switch (user.toUpperCase()) {
+      case 'ADMIN':
         console.log(' 1.] Logout\n 2.] Daftar Pasien\n 3.] Lihat Rekam Medis [ID Pasien]\n 4.] Tambah Pasien\n 5.] Hapus Data Pasien [ID Pasien]\n 6.] Tambah Data Pekerja\n 7.] Daftar Pekerja\n 8.] Hapus Data Pekerja [nama_pekerja]');
         break
-      case 'Dokter':
+      case 'DOKTER':
         console.log(' 1.] Logout\n 2.] Daftar Pasien\n 3.] Lihat Rekam Medis [ID Pasien]\n 4.] Tambah Pasien\n 5.] Hapus Data Pasien [ID Pasien]');
         break
-      case 'Patient':
+      case 'PATIENT':
         console.log(' 1.] Logout\n 2.] Daftar Pasien\n 3.] Lihat Rekam Medis [ID Pasien]');
         break
-      case 'Office Boy':
+      case 'OFFICE BOY':
         console.log(' 1.] Logout');
         break
       default:
