@@ -60,9 +60,9 @@ class Hospital {
     }
     return false;
   }
-  // static clearer() {
-  //   console.log('\u001B[2J\u001B[0;0f');
-  // }
+  static clearer() {
+    console.log("\x1B[2J");
+  }
   static back(){
     rl.question('Please enter if you want to go back :)', (input) => {
       if (input != null) {
@@ -71,7 +71,7 @@ class Hospital {
     });
   }
   static patientList(){
-    // console.log('\u001B[2J\u001B[0;0f');
+    this.clearer();
     console.log(`PATIENT LIST`);
     var table = new Table({
       head: ['ID', 'NAME']
@@ -84,7 +84,7 @@ class Hospital {
   }
 
   static showPatient(n){
-    // this.clearer();
+    this.clearer();
     var theOne = 0;
     for (let i=0; i<data_patient.length; i++) {
      if (data_patient[i].id == n) {
@@ -105,7 +105,7 @@ class Hospital {
   }
 
   static employeeList(){
-    // this.clearer();
+    this.clearer();
     console.log(`EMPLOYEE LIST`);
     var table3 = new Table({
       head: ['ID', 'NAME', 'POSITION']
@@ -120,7 +120,7 @@ class Hospital {
   static addPatient(id,nama,recordId,recordName){
     // console.log('the id record'+recordId);
     // console.log('the record name'+recordName);
-    // this.clearer();
+    this.clearer();
     var obj = {}
     obj['id'] = id;
     obj['name'] = nama;
@@ -135,7 +135,7 @@ class Hospital {
   }
 
   static deletePatient(n){
-    // this.clearer();
+    this.clearer();
     let newList = [];
     for (let i=0; i<data_patient.length; i++) {
       if (data_patient[i].id != n) {
@@ -147,7 +147,7 @@ class Hospital {
   }
 
   static addEmployee(id,nama,position,username,password){
-    // this.clearer();
+    this.clearer();
     var obj = {}
     obj['id'] = id;
     obj['name'] = nama;
@@ -160,7 +160,7 @@ class Hospital {
   }
 
   static deleteEmployee(nama){
-    // this.clearer();
+    this.clearer();
     let newList = [];
     for (let i=0; i<data_employee.length; i++) {
       if (data_employee[i].name != nama) {
@@ -189,6 +189,7 @@ class Hospital {
   }
 
   static menu(answer){
+    this.clearer();
     console.log('========================================================================');
     console.log(`Hii ${data_employee[this.user].name}, you sign in as ${this.role.toUpperCase()}`);
     console.log('========================================================================');

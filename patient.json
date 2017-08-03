@@ -18,5 +18,15 @@
         "record_name": "Sakit pinggang"
       }
     ]
+  },
+  {
+    "id": "007",
+    "name": "Sumatra",
+    "record": [
+      {
+        "record_id": "1",
+        "record_name": "Banjir"
+      }
+    ]
   }
 ]
