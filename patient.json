@@ -4,7 +4,7 @@
     "name": "Jackson",
     "record": [
       {
-        "record_id": 1,
+        "record_id": "1",
         "record_name": "Sakit gigi"
       }
     ]
@@ -14,7 +14,7 @@
     "name": "Sukmo",
     "record": [
       {
-        "record_id": 1,
+        "record_id": "1",
         "record_name": "Sakit pinggang"
       }
     ]
