@@ -1,5 +1,7 @@
 const readline = require('readline');
 const fs = require('fs');
+const Dokter = require('./dokter');
+const Reception = require('./reception');
 
 
 const rl = readline.createInterface({
@@ -44,6 +46,8 @@ class Hospital {
             this.menuReceptionist(getData[id].name)
           } else if(getData[id].position === 'office boy'){
             this.menuOB(getData[id].name)
+          } else {
+            this.runApp()
           }
         } else {
           this.runApp()
@@ -83,34 +87,18 @@ class Hospital {
         this.delRekam()
       } else if(input == 9){
         this.logout()
+      } else {
+        this.logout()
       }
     })
   }
-  menuDokter(user){
-    console.log(`Halo ${user}`);
-    console.log(`
-      --- Menu Sistem Dokter ---
-      [1] Daftar Pasien
-      [2] Hapus Pasien
-      [3] Tambah Rekam Medis
-      [4] Hapus Rekam Medis
-      [5] Logout`);
-    rl.question('\nPilih Menu dengan mengetik angka: ', (input)=>{
-    })
+  menuDokter(){
+    let getMenu = new Dokter()
+    getMenu.menuAdmin()
   }
-  menuReceptionist(user){
-    console.log(`Halo ${user}`);
-    console.log(`
-      --- Menu Sistem Receptionist ---
-      [1] Tambah Pasien
-      [2] Daftar Pasien
-      [3] Hapus Pasien
-      [4] Tambah Rekam Medis
-      [5] Hapus Rekam Medis
-      [6] Logout`);
-
-    rl.question('\nPilih Menu dengan mengetik angka: ', (input)=>{
-    })
+  menuReceptionist(){
+    let getMenu = new Reception()
+    getMenu.menuAdmin()
   }
   menuOB(user){
     console.log(`Halo ${user}`);
@@ -458,3 +446,4 @@ run.runApp()
 // console.log(run.readEmployee());
 // console.log(run.readPatient());
 // console.log(run.addPatient('Nasikin'));
+module.exports = Hospital;
