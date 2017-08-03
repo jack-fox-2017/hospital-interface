@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Rumah Sakit Ceritanya",
+    "employees": [
+      {
+        "name": "Ahmad Aidil",
+        "position": "Admin",
+        "username": "a",
+        "password": "a"
+      },
+      {
+        "name": "Node",
+        "position": "Dokter",
+        "username": "node",
+        "password": "node"
+      },
+      {
+        "name": "Logi",
+        "position": "OfficeBoy",
+        "username": "1",
+        "password": "1"
+      },
+      {
+        "name": "Err",
+        "position": "Dokter",
+        "username": "err",
+        "password": "err"
+      }
+    ],
+    "patients": [
+      {
+        "id": "12",
+        "name": "Budi",
+        "diagnosis": [
+          "flu",
+          "demam",
+          "luka ringan",
+          "pusing"
+        ]
+      }
+    ],
+    "location": "Everywhere Street No.43"
+  }
+]
