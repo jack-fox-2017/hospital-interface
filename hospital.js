@@ -14,6 +14,7 @@ class Hospital {
     this.patients = patients;
     this.location = location;
   }
+
   static run(){
     ModelHospital.getData(dataHospital => {
       let parseData = JSON.parse(dataHospital);
@@ -106,59 +107,95 @@ class Hospital {
           }this.command(auth);
           break;
         case "view_record" :
-          for(let i=0; i<this._patients.length; i++){
-            if(this._patients[i].id == comm[1]){
-              ViewHospital.list(this._patients[i].diagnosis, '');
-            }else{
-              ViewHospital.info(rec);
+          if(auth >= 5){
+            for(let i=0; i<this._patients.length; i++){
+              if(this._patients[i].id == comm[1]){
+                ViewHospital.list(this._patients[i].diagnosis, '');
+              }else{
+                ViewHospital.info(rec);
+              }
             }
-            ViewHospital.menu(auth);
-            this.command(auth)
+          }else{
+            ViewHospital.info(noAuth);
           }
+          ViewHospital.menu(auth);
+          this.command(auth);
           break;
         case "add_record":
-          let newRecData = [];
-          for(let i=0; i<this._patients.length; i++){
-            if(this._patients[i].id == comm[1]){
-              rl.question('input record baru : ', newRec => {
-                this._patients[i].diagnosis.push(newRec);
-                newRecData.push(new Hospital(this._name, this._location, this._employees, this._patients));
-                ModelHospital.writeData(newRecData);
-                rec = 'record diagnosa telah ditambahkan';
-                ViewHospital.info(rec);
-                ViewHospital.menu(auth);
-                this.command(auth)
-              });
-            }else{
-              ViewHospital.menu(auth);
-              this.command(auth)
+          if(auth >= 5){
+            let newRecData = [];
+            for(let i=0; i<this._patients.length; i++){
+              if(this._patients[i].id == comm[1]){
+                rl.question('input record baru : ', newRec => {
+                  this._patients[i].diagnosis.push(newRec);
+                  newRecData.push(new Hospital(this._name, this._location, this._employees, this._patients));
+                  ModelHospital.writeData(newRecData);
+                  rec = 'record diagnosa telah ditambahkan';
+                  ViewHospital.info(rec);
+                  ViewHospital.menu(auth);
+                  this.command(auth)
+                });
+              }
             }
+          }else{
+            ViewHospital.info(noAuth);
+            ViewHospital.menu(auth);
+            this.command(auth);
           }
           break;
         case "rm_record":
-          let rmRecData = [];
-          for(let i=0; i<this._patients.length; i++){
-            if(this._patients[i].id == comm[1]){
-              this._patients[i].diagnosis.splice(parseInt(comm[2])-1, 1);
-              rmRecData.push(new Hospital(this._name, this._location, this._employees, this._patients));
-              ModelHospital.writeData(rmRecData);
-              rec = 'record diagnosa telah terhapus!';
-              ViewHospital.info(rec);
-              ViewHospital.menu(auth);
-              this.command(auth);
-            }else{
-              ViewHospital.menu(auth);
-              this.command(auth)
+          if(auth >= 5){
+            let rmRecData = [];
+            for(let i=0; i<this._patients.length; i++){
+              if(this._patients[i].id == comm[1]){
+                this._patients[i].diagnosis.splice(parseInt(comm[2])-1, 1);
+                rmRecData.push(new Hospital(this._name, this._location, this._employees, this._patients));
+                ModelHospital.writeData(rmRecData);
+                rec = 'record diagnosa telah terhapus!';
+                ViewHospital.info(rec);
+              }
             }
+          }else{
+            ViewHospital.info(noAuth);
           }
+          ViewHospital.menu(auth);
+          this.command(auth);
           break;
-        case 'logout':
+        case "rm_karyawan":
+          if(auth == 8){
+            if(comm[1]-1>=this._employees.length){
+              ViewHospital.info('id employees tidak ditemukan');
+            }else{
+              this.rm(comm[1], 'karyawan');
+            }
+          }else{
+            ViewHospital.info(noAuth);
+          }
+          ViewHospital.menu(auth);
+          this.command(auth);
+          break;
+        case "rm_pasien":
+          if(auth >= 5){
+            for(let i=0; i<this._patients.length; i++){
+              if(this._patients[i].id == comm[1]){
+                this.rm(i, 'pasien');
+              }
+            }
+          }else{
+            ViewHospital.info(noAuth);
+          }
+          ViewHospital.menu(auth);
+          this.command(auth);
+          break;
+        case "logout":
           this.run();
           break;
-        case 'exit' :
+        case "exit" :
           rl.close();
           break;
         default :
+          console.log('\x1Bc');
+          ViewHospital.menu(auth);
           this.command(auth);
       }
     });
@@ -174,7 +211,7 @@ class Hospital {
               this._employees.push(new Employee(nama, posisi, uname, pw));
               newData.push(new Hospital(this._name, this._location, this._employees, this._patients));
               ModelHospital.writeData(newData);
-              ViewHospital.info('\nData karyawan baru tersimpan!\n');
+              ViewHospital.info('Data karyawan baru tersimpan!');
               ViewHospital.menu(auth);
               this.command(auth);
             });
@@ -183,13 +220,15 @@ class Hospital {
       });
     }
     else{
-      rl.question('Id pasien :', id => {
+      rl.question('Id pasien : ', id => {
         rl.question('Nama pasien: ', nama => {
           rl.question('Diagnosis pasien: ', diag =>{
-            this._patients.push(new Patient(id, nama, diag));
+            let arrDiag = [];
+            arrDiag.push(diag);
+            this._patients.push(new Patient(id, nama, arrDiag));
             newData.push(new Hospital(this._name, this._location, this._employees, this._patients));
             ModelHospital.writeData(newData);
-            ViewHospital.info('\nData pasien baru tersimpan!\n');
+            ViewHospital.info('Data pasien baru tersimpan!');
             ViewHospital.menu(auth);
             this.command(auth);
           });
@@ -197,6 +236,19 @@ class Hospital {
       });
     }
     this.command(auth);
+  }
+  static rm(id, auth){
+    let newData = [];
+    let str = 'pasien';
+    if(auth == 'karyawan'){
+      this._employees.splice(id-1, 1);
+      str = 'karyawan';
+    }else{
+      this._patients.splice(id, 1);
+    }
+    newData.push(new Hospital(this._name, this._location, this._employees, this._patients));
+    ModelHospital.writeData(newData);
+    ViewHospital.info('\nData '+str+' berhasil terhapus!\n');
   }
 }
 

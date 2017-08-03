@@ -19,12 +19,6 @@
         "position": "OfficeBoy",
         "username": "1",
         "password": "1"
-      },
-      {
-        "name": "Err",
-        "position": "Dokter",
-        "username": "err",
-        "password": "err"
       }
     ],
     "patients": [
@@ -36,6 +30,14 @@
           "demam",
           "luka ringan",
           "pusing"
+        ]
+      },
+      {
+        "id": "43",
+        "name": "Ucok",
+        "diagnosis": [
+          "Ditikung",
+          "Putus cinta"
         ]
       }
     ],

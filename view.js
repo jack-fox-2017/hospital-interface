@@ -1,5 +1,3 @@
-const readline = require('readline');
-
 class ViewHospital{
   static header(hospital){
     //console.log(hospital);
@@ -8,8 +6,8 @@ class ViewHospital{
     console.log('Selamat Datang di '+hospital[0].name);
     console.log('---------------------------------------');
     console.log('Lokasi Rumah Sakit : '+hospital[0].location);
-    console.log('Jumlah karyawan RS beserta dokter saat ini: '+hospital[0].employees.length);
-    console.log('Jumlah pasien RS saat ini: '+hospital[0].patients.length);
+    console.log('Jumlah karyawan RS beserta dokter saat ini: '+hospital[0].employees.length+' orang');
+    console.log('Jumlah pasien RS saat ini: '+hospital[0].patients.length+' orang');
     console.log('---------------------------------------');
   }
   static user(name, position){
@@ -19,11 +17,11 @@ class ViewHospital{
   }
 
   static menu(numOfOps){
-    console.log('\n-----MENU-----');
+    console.log('\n-----MENU PERINTAH-----');
     if(numOfOps == 8){
       console.log('- list_karyawan');
       console.log('- add_karyawan');
-      console.log('- rm_karyawan <karyawan_id');
+      console.log('- rm_karyawan <karyawan_id>');
     }
     if(numOfOps >= 5){
       console.log('- list_pasien');
@@ -35,7 +33,7 @@ class ViewHospital{
     }
     console.log('- logout');
     console.log('- exit');
-    console.log('-------------\n');
+    console.log('---------------------\n');
   }
   static list(data, auth){
     console.log('\x1Bc');
