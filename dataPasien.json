@@ -1,0 +1,26 @@
+[
+ {
+  "id": "001",
+  "nama": "sumarjo",
+  "diagnosa": "pusing pala",
+  "status": "perawatan"
+ },
+ {
+  "id": "002",
+  "nama": "sulastri",
+  "diagnosa": "terlalu bersemangat",
+  "status": "perawatan"
+ },
+ {
+  "id": "3",
+  "nama": "4",
+  "diagnosa": "4",
+  "status": "perawatan"
+ },
+ {
+  "id": "009",
+  "nama": "Alfan",
+  "diagnosa": "Alfan",
+  "status": "perawatan"
+ }
+]

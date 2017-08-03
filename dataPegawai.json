@@ -1,0 +1,38 @@
+[
+ {
+  "id": "1",
+  "user": "ujang",
+  "password": "123",
+  "nama": "ujang",
+  "position": "OB"
+ },
+ {
+  "id": "2",
+  "user": "kis",
+  "password": "123",
+  "nama": "kis",
+  "position": "RESEPSIONIS"
+ },
+  {
+  "id": "3",
+  "user": "PERAWAT",
+  "password": "123",
+  "nama": "PERAWAT",
+  "position": "PERAWAT"
+  },
+  {
+   "id": "4",
+   "user": "admin",
+   "password": "123",
+   "nama": "admin",
+   "position": "ADMIN"
+  },
+  {
+   "id": "5",
+   "user": "DOKTER",
+   "password": "123",
+   "nama": "DOKTER",
+   "position": "DOKTER"
+  }
+
+]
