@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/jack-fox-2017/hospital-interface/issues"
   },
-  "homepage": "https://github.com/jack-fox-2017/hospital-interface#readme"
+  "homepage": "https://github.com/jack-fox-2017/hospital-interface#readme",
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "cli-table": "^0.3.1"
+  }
 }

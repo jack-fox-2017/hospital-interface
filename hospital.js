@@ -189,8 +189,8 @@ class Hospital {
       console.log('\u001B[2J\u001B[0;0f')
     }
   }
-  back() {
-    rl.question(chalk.green('Press enter to go back to menu\n'), input => {
+  back(callback) {
+    rl.question(chalk.green('Press enter to go back\n'), input => {
       this.menu()
     })
   }
